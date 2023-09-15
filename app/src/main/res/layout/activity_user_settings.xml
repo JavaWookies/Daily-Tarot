@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.UserSettingsActivity">
+
+    <ImageView
+        android:id="@+id/SignUpBackgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cover"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/SettingsContentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_bg"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintHeight_percent="0.8">
+
+        <TextView
+            android:id="@+id/UserSettingsActivitySpinnerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/select_card_style"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/UserSettingsCardTypeSpinner"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/UserSettingsCardTypeSpinner"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivitySpinnerLabel" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+            android:id="@+id/UserSettingsActivityLightCardImage"
+            android:layout_width="120dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/light_theme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/cover_light" />
+
+            <ImageView
+                android:id="@+id/UserSettingsActivityGoldCardImage"
+                android:layout_width="120dp"
+                android:layout_height="205dp"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/gold_theme"
+                app:layout_constraintEnd_toStartOf="@+id/UserSettingsActivityLightCardImage"
+                android:layout_marginStart="24dp"
+                app:srcCompat="@drawable/cover" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/UserAttributesLightImageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/light"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/UserSettingsActivityLightCardImage"
+            app:layout_constraintStart_toStartOf="@+id/UserSettingsActivityLightCardImage"
+            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityLightCardImage" />
+
+        <TextView
+            android:id="@+id/UserAttributesGoldImageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/gold"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/UserSettingsActivityGoldCardImage"
+            app:layout_constraintStart_toStartOf="@+id/UserSettingsActivityGoldCardImage"
+            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityGoldCardImage" />
+
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/UserSettingsActivitySaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:minHeight="48dp"
+            android:text="@string/save_settings" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
