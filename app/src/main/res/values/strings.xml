@@ -57,5 +57,7 @@
     <string name="meaning_down">Meaning Down</string>
     <string name="main_description">Main Description</string>
     <string name="card_background">Card Background</string>
+    <string name="welcome_text">Welcome To Daily Tarot</string>
+    <string name="instructions_text">Head to the Reading page to get your daily reading or the View all Cards section for further information on any card!</string>
 
 </resources>

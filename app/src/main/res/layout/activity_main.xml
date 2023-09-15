@@ -15,31 +15,36 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/cover"
-            android:scaleType="centerCrop" />
+            android:contentDescription="@string/card_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cover" />
 
         <TextView
             android:id="@+id/welcome_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="160dp"
-            android:background="@drawable/royal_purple_background_80"
-            android:text="Welcome To Daily Tarot"
-            android:textColor="@android:color/white"
+            android:background="#CCFFFFFF"
+            android:gravity="center"
+            android:text="@string/welcome_text"
+            android:textColor="@color/black"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/instructions_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="340dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_margin="40dp"
-            android:background="@drawable/royal_purple_background_80"
-            android:text="Head to the Reading page to get your daily reading or the View all Cards section for further information on any card!"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:background="#CCFFFFFF"
+            android:gravity="center"
+            android:text="@string/instructions_text"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="TextSizeCheck" />
 
     </FrameLayout>
 
