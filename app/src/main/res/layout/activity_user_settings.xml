@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.UserSettingsActivity">
 
-    <ImageView
-        android:id="@+id/SignUpBackgroundImageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cover"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/night_sky_gradient"
+        tools:context=".activities.UserSettingsActivity">
 
-    <LinearLayout
-        android:id="@+id/SettingsContentContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/rounded_bg"
-        android:orientation="vertical"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintHeight_percent="0.8">
+        <TextView
+            android:id="@+id/UserSettingsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/playfair_display_bold"
+            android:text="@string/user_settings_label"
+            android:textColor="#FFD700"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/notificationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/libre_caslon"
+            android:text="@string/enable_notifications"
+            android:textColor="#FFD700"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UserSettingsLabel" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/notification_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="48dp"
+            android:checked="true"
+            android:longClickable="false"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            app:layout_constraintBottom_toBottomOf="@+id/notificationLabel"
+            app:layout_constraintStart_toEndOf="@+id/notificationLabel"
+            app:layout_constraintTop_toTopOf="@+id/notificationLabel"
+            app:showText="true"
+            app:switchTextAppearance="@style/BrandedSwitch.text"
+            app:theme="@style/BrandedSwitch.control" />
 
         <TextView
             android:id="@+id/UserSettingsActivitySpinnerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/libre_caslon"
             android:text="@string/select_card_style"
-            android:textColor="#000000"
+            android:textColor="#FFD700"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/UserSettingsCardTypeSpinner"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notificationLabel" />
 
         <Spinner
             android:id="@+id/UserSettingsCardTypeSpinner"
@@ -50,77 +76,96 @@
             android:layout_marginTop="8dp"
             android:minHeight="48dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivitySpinnerLabel" />
+            app:layout_constraintTop_toBottomOf="@id/UserSettingsActivitySpinnerLabel" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
-
-            <ImageView
-            android:id="@+id/UserSettingsActivityLightCardImage"
-            android:layout_width="120dp"
-            android:layout_height="205dp"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/light_theme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/cover_light" />
-
-            <ImageView
-                android:id="@+id/UserSettingsActivityGoldCardImage"
-                android:layout_width="120dp"
-                android:layout_height="205dp"
-                android:layout_marginTop="40dp"
-                android:contentDescription="@string/gold_theme"
-                app:layout_constraintEnd_toStartOf="@+id/UserSettingsActivityLightCardImage"
-                android:layout_marginStart="24dp"
-                app:srcCompat="@drawable/cover" />
-
-        </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <TextView
-            android:id="@+id/UserAttributesLightImageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="@string/light"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/UserSettingsActivityLightCardImage"
-            app:layout_constraintStart_toStartOf="@+id/UserSettingsActivityLightCardImage"
-            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityLightCardImage" />
+        <ImageView
+            android:id="@+id/UserSettingsActivityGoldCardImage"
+            android:layout_width="100dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/gold_themed_tarot_card"
+            android:src="@drawable/cover"
+            app:layout_constraintEnd_toStartOf="@+id/UserSettingsActivityLightCardImage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UserSettingsCardTypeSpinner" />
 
         <TextView
             android:id="@+id/UserAttributesGoldImageLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="8dp"
             android:text="@string/gold"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/UserSettingsActivityGoldCardImage"
-            app:layout_constraintStart_toStartOf="@+id/UserSettingsActivityGoldCardImage"
-            app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityGoldCardImage" />
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/libre_caslon_header"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/UserSettingsActivityGoldCardImage"
+            app:layout_constraintStart_toStartOf="@id/UserSettingsActivityGoldCardImage"
+            app:layout_constraintTop_toBottomOf="@id/UserSettingsActivityGoldCardImage" />
 
+        <ImageView
+            android:id="@+id/UserSettingsActivityLightCardImage"
+            android:layout_width="100dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/light_themed_tarot_card"
+            android:src="@drawable/cover_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/UserSettingsActivityGoldCardImage"
+            app:layout_constraintTop_toBottomOf="@id/UserSettingsCardTypeSpinner" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/UserAttributesLightImageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/light"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/libre_caslon_header"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/UserSettingsActivityLightCardImage"
+            app:layout_constraintStart_toStartOf="@id/UserSettingsActivityLightCardImage"
+            app:layout_constraintTop_toBottomOf="@id/UserSettingsActivityLightCardImage" />
+
 
         <Button
             android:id="@+id/UserSettingsActivitySaveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="32dp"
             android:minHeight="48dp"
-            android:text="@string/save_settings" />
+            android:text="@string/save_settings"
+            android:fontFamily="@font/libre_caslon"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFD700"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UserAttributesGoldImageLabel" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-9366728814901706/4900938508"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/MainActivityNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"
+        tools:ignore="VisualLintBounds" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -6,40 +6,55 @@ public class Card {
     private String type;
     private String nameShort;
     private String name;
-    private String value;
-    private int valueInt;
     private String meaningUp;
     private String meaningRev;
     private String desc;
+    private String intPast;
+    private String intPresent;
+    private String intFuture;
+    private String intPastRev;
+    private String intPresentRev;
+    private String intFutureRev;
+    private String associatedWords;
     private int orientation;
 
     public Card() {
     }
 
-    public Card(Long id, String type, String nameShort, String name, String value, int valueInt, String meaningUp, String meaningRev, String desc, int orientation) {
+    public Card(Long id, String type, String nameShort, String name, String meaningUp, String meaningRev, String desc, int orientation, String intPast, String intPresent, String intFuture, String intPastRev, String intPresentRev, String intFutureRev, String associatedWords) {
         this.id = id;
         this.type = type;
         this.nameShort = nameShort;
         this.name = name;
-        this.value = value;
-        this.valueInt = valueInt;
         this.meaningUp = meaningUp;
         this.meaningRev = meaningRev;
         this.desc = desc;
         this.orientation = orientation;
+        this.intPast = intPast;
+        this.intPresent = intPresent;
+        this.intFuture = intFuture;
+        this.intPastRev = intPastRev;
+        this.intPresentRev = intPresentRev;
+        this.intFutureRev = intFutureRev;
+        this.associatedWords = associatedWords;
     }
 
-    public Card(Long id, String type, String nameShort, String name, String value, int valueInt, String meaningUp, String meaningRev, String desc) {
+    public Card(Long id, String type, String nameShort, String name, String meaningUp, String meaningRev, String desc, String intPast, String intPresent, String intFuture, String intPastRev, String intPresentRev, String intFutureRev, String associatedWords) {
         this.id = id;
         this.type = type;
         this.nameShort = nameShort;
         this.name = name;
-        this.value = value;
-        this.valueInt = valueInt;
         this.meaningUp = meaningUp;
         this.meaningRev = meaningRev;
         this.desc = desc;
         this.orientation = 0;
+        this.intPast = intPast;
+        this.intPresent = intPresent;
+        this.intFuture = intFuture;
+        this.intPastRev = intPastRev;
+        this.intPresentRev = intPresentRev;
+        this.intFutureRev = intFutureRev;
+        this.associatedWords = associatedWords;
     }
 
     public Long getId() {
@@ -62,13 +77,6 @@ public class Card {
         return name;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public int getValueInt() {
-        return valueInt;
-    }
 
     public String getMeaningUp() {
         return meaningUp;
@@ -94,13 +102,6 @@ public class Card {
         this.name = name;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public void setValueInt(int valueInt) {
-        this.valueInt = valueInt;
-    }
 
     public void setMeaningUp(String meaningUp) {
         this.meaningUp = meaningUp;
@@ -122,17 +123,62 @@ public class Card {
         this.orientation = orientation;
     }
 
-    @Override
-    public String toString() {
-        return "Card{" +
-                "type='" + type + '\'' +
-                ", nameShort='" + nameShort + '\'' +
-                ", name='" + name + '\'' +
-                ", value='" + value + '\'' +
-                ", valueInt=" + valueInt +
-                ", meaningUp='" + meaningUp + '\'' +
-                ", meaningRev='" + meaningRev + '\'' +
-                ", desc='" + desc + '\'' +
-                '}';
+    public String getIntPast() {
+        return intPast;
     }
+
+    public void setIntPast(String intPast) {
+        this.intPast = intPast;
+    }
+
+    public String getIntPresent() {
+        return intPresent;
+    }
+
+    public void setIntPresent(String intPresent) {
+        this.intPresent = intPresent;
+    }
+
+    public String getIntFuture() {
+        return intFuture;
+    }
+
+    public void setIntFuture(String intFuture) {
+        this.intFuture = intFuture;
+    }
+
+    public String getAssociatedWords() {
+        return associatedWords;
+    }
+
+    public String getIntPastRev() {
+        return intPastRev;
+    }
+
+    public void setIntPastRev(String intPastRev) {
+        this.intPastRev = intPastRev;
+    }
+
+    public String getIntPresentRev() {
+        return intPresentRev;
+    }
+
+    public void setIntPresentRev(String intPresentRev) {
+        this.intPresentRev = intPresentRev;
+    }
+
+    public String getIntFutureRev() {
+        return intFutureRev;
+    }
+
+    public void setIntFutureRev(String intFutureRev) {
+        this.intFutureRev = intFutureRev;
+    }
+
+    public void setAssociatedWords(String associatedWords) {
+        this.associatedWords = associatedWords;
+    }
+
+
+
 }

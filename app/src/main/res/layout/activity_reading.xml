@@ -1,102 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ReadingActivity"
-    android:background="#D3E0D7">
+    tools:context=".activities.ReadingActivity">
 
-    <Button
-        android:id="@+id/ReadingActivityDrawCardsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/draw_cards"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="VisualLintOverlap" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DailyReadingConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/night_sky_gradient"
+        tools:context=".activities.ReadingActivity"
+        tools:ignore="ExtraText">
 
-    <Button
-        android:id="@+id/ReadingActivityRewardAdButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/watch_ad"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/ReadingActivityDeckImage"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="96dp"
-        android:contentDescription="@string/deck"
-        android:src="@drawable/cover"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/ReadingActivityDrawnCardOne"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:contentDescription="@string/drawn_card_one"
-        android:src="@drawable/cover"
-        app:layout_constraintEnd_toStartOf="@+id/ReadingActivityDrawnCardTwo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ReadingActivityDrawnCardTwo" />
-
-    <ImageView
-        android:id="@+id/ReadingActivityDrawnCardTwo"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/second_drawn_card"
-        android:src="@drawable/cover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ReadingActivityDrawnCardThree"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:contentDescription="@string/third_drawn_card"
-        android:src="@drawable/cover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ReadingActivityDrawnCardTwo"
-        app:layout_constraintTop_toTopOf="@+id/ReadingActivityDrawnCardTwo" />
-
-    <ScrollView
-        android:id="@+id/CardDetailActivityScrollView"
-        android:layout_width="365dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ReadingActivityDeckImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ReadingActivityDrawnCardTwo">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_30"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
 
-            <TextView
-                android:id="@+id/ReadingActivityInterpretationPlaceHolder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="4dp"
-                android:padding="16dp"
-                android:text="@string/draw_cards_interpretation"
-                android:textSize="16sp"
-                app:fontFamily="@font/kalam_light" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
 
-        </LinearLayout>
-    </ScrollView>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/ReadingActivityDrawCardsButton"
+            style="@style/MyButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/draw_cards"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_70"
+            tools:ignore="VisualLintOverlap" />
+
+        <Button
+            android:id="@+id/ReadingActivityRewardAdButton"
+            style="@style/MyButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/watch_ad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_70" />
+
+        <ImageView
+            android:id="@+id/ReadingActivityDeckImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:layout_marginVertical="16dp"
+            android:contentDescription="@string/deck"
+            android:src="@drawable/cover"
+            app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_70"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_40" />
+
+        <ImageView
+            android:id="@+id/ReadingActivityDrawnCardOne"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/drawn_card_one"
+            android:src="@drawable/cover"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_30"
+            app:layout_constraintEnd_toStartOf="@id/ReadingActivityDrawnCardTwo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="VisualLintBounds" />
+
+        <ImageView
+            android:id="@+id/ReadingActivityDrawnCardTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/second_drawn_card"
+            android:src="@drawable/cover"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_30"
+            app:layout_constraintEnd_toStartOf="@id/ReadingActivityDrawnCardThree"
+            app:layout_constraintStart_toEndOf="@id/ReadingActivityDrawnCardOne"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ReadingActivityDrawnCardThree"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/third_drawn_card"
+            android:src="@drawable/cover"
+            app:layout_constraintStart_toEndOf="@id/ReadingActivityDrawnCardTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_30" />
+
+        <TextView
+            android:id="@+id/CustomSpreadTapHold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/libre_caslon_header"
+            android:text="@string/tap_hold"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/DailyCardActivityViewCardDetailsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_30" />
+
+        <Button
+            android:id="@+id/DailyCardActivityViewCardDetailsButton"
+            style="@style/MyButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/view_interpretation"
+            app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-9366728814901706/1393734497"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/MainActivityNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"
+        tools:ignore="VisualLintBounds" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

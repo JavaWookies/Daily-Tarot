@@ -1,57 +1,80 @@
 # Daily Tarot
 
-A mobile tarot reading application designed to offer users an intuitive and enhanced Tarot card reading experience without the need for a physical deck or in-depth Tarot knowledge.
+## Version 2 Documentation
 
+A mobile tarot reading application designed to offer users a simple, personal, and insightful Tarot card reading experience directly on their phones, without the need for a physical deck or extensive Tarot knowledge.
 
-## Summary
+### Summary
 
-Replicate the experience of a traditional tarot reading through a mobile application. Users are prompted to sign in, after which they are granted one free reading per day. Additional readings can be availed by watching a reward ad video. Each reading consists of 3 cards drawn at random, accompanied by their interpretations.
+This application aims to bring the mystical experience of tarot reading into the digital age. It provides users with daily personalized tarot readings and the opportunity to explore Tarot card meanings and interpretations, all stored locally for easy access.
 
-## Problem Statement
+### Problem Statement
 
-Traditional Tarot card readings necessitate a physical deck and a knowledgeable interpreter. This application seeks to overcome these barriers by digitizing the tarot reading process, making it widely accessible. Future implementations may involve AI integrations to provide novel interpretations of card combinations.
+Traditional Tarot card readings require a physical deck and often a skilled interpreter. This app digitizes the tarot reading process, overcoming these barriers and making it accessible to anyone with a smartphone.
 
-## Features
+### Features
 
-### User Authentication:
-- **Sign Up**: Create a new account with your email.
-- **Verification**: Verify your email by entering the code sent to your inbox.
-- **Login**: Access the app's features by logging in.
+#### Main Navigation
+- A user-friendly interface to navigate between different features of the app.
 
-### Tarot Readings:
-- **3 Card Draw Reading**: Engage with a 3-card draw reading to understand your past, present, and future.
-- **All Cards View**: Browse through all the Tarot cards in the deck.
-- **Card Details**: Click on any card's image to view a detailed, enlarged image alongside its interpretation.
-- **Past Readings**: Visit your reading history, displaying the date, the three card images, and their orientation.
+#### Daily Reading
+- Receive a daily personalized Tarot card that describes your day.
 
-### User Interface & Experience:
-- **Themes**: Choose between light and dark themes using shared preferences.
-- **Glide Integration**: Enjoy a smooth scrolling experience when browsing Tarot card images.
+#### Card of the Day
+- A unique feature where users get one Tarot card per day with its interpretation.
 
-## Minimum Viable Product (MVP)
+#### View All Cards
+- Browse through the entire Tarot deck at your leisure.
+- Access detailed descriptions and interpretations for each card.
 
-- **User Interface (UI)**: Simple and user-friendly design enabling users to shuffle and draw cards.
-- **Reading Display**: Highlight the three chosen cards along with their descriptions.
-- **User Profiles**: Offer users a single complimentary reading daily post-login. Additional readings can be obtained via reward ads. Stretch goal includes accessing previous readings.
-- **Tarot Index**: Feature allowing users to delve into the stored meanings of each Tarot card.
+#### Settings
+- Customize your app experience according to your preferences.
 
-## Team Members
+#### Local Storage
+- All card data is stored locally on your phone using SQLite, ensuring quick and offline access.
 
+### User Interface & Experience
+- A straightforward and intuitive interface.
+- Quick and offline access to Tarot card data and interpretations.
+
+### Minimum Viable Product (MVP)
+- A simple, yet engaging UI that allows users to interact with daily readings and explore Tarot cards.
+- Emphasis on local data storage for speed and accessibility.
+
+### Team Members
 - Aaron Clark
 - Alex Chao
 - Dylan Cooper
 - Jon Stillson
 
-## Tools & Libraries
+### Tools & Libraries
+- **SQLite**: For local storage of Tarot card data.
+- **Glide**: For seamless image loading.
+- **Shared Preferences**: To manage user settings.
 
-- **AWS Amplify**: Cloud integration.
-- **AWS Cognito**: User authentication.
-- **SQLite**: Local storage solution for Tarot card objects.
-- **DynamoDB**: Storing user readings.
-- **AdMobs**: User can watch a reward ad to do another drawing.
-- **Glide**: For smooth image loading in RecyclerViews.
-- **Shared Preferences**: For theme settings.
+### Contributing
+For suggestions, bug reports, or feature requests, please contact us through the provided channels.
 
-## Contributing
+---
 
-For suggestions, bug reports, or feature requests, please open an issue through our GitHub repository.
+#### Changes from Version 1 to Version 2
+
+1. **Removed Features:**
+    - User authentication (Sign Up, Verification, Login) has been removed.
+    - AWS Amplify and AWS Cognito are no longer used.
+    - The functionality for reward ads and additional readings has been removed.
+    - Past readings feature is no longer mentioned.
+
+2. **New/Modified Features:**
+    - Introduction of SQLite for local storage of Tarot card data.
+    - Simplified Daily Reading feature to offer a single card per day.
+    - The addition of 'Card of the Day' feature.
+    - Enhanced emphasis on local storage for quick and offline access.
+
+3. **User Interface & Experience:**
+    - Redesigned UI for simplicity and ease of use.
+    - Focus on offline functionality.
+
+4. **General Changes:**
+    - The overall focus of the application has shifted to a more personal and localized experience.
+    - Simplification of features to make the app more user-friendly and less dependent on cloud services.

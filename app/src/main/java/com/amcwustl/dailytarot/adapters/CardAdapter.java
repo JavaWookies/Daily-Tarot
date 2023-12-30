@@ -1,18 +1,20 @@
 package com.amcwustl.dailytarot.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amcwustl.dailytarot.R;
+import com.amcwustl.dailytarot.activities.UserSettingsActivity;
 import com.amcwustl.dailytarot.models.Card;
-import com.amcwustl.dailytarot.activities.CardDetailActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -20,18 +22,21 @@ import java.util.List;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
   private final List<Card> cards;
-  private final Context context;
   private final OnItemClickListener listener;
+  private final String cardTagValue;
 
   public CardAdapter(List<Card> cards, Context context, OnItemClickListener listener) {
     this.cards = cards;
-    this.context = context;
     this.listener = listener;
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    this.cardTagValue = preferences.getString(UserSettingsActivity.CARD_TYPE_TAG, ""); // Use the key for card_tag_value
+
   }
 
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item, parent, false);
     return new ViewHolder(view, listener, cards);
   }
@@ -39,9 +44,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
   @Override
   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     Card card = cards.get(position);
+    String cardName = card.getNameShort() + cardTagValue;
 
-    int imageResId = holder.itemView.getContext().getResources().getIdentifier(
-            card.getNameShort(),
+    @SuppressLint("DiscouragedApi") int imageResId = holder.itemView.getContext().getResources().getIdentifier(
+            cardName,
             "drawable",
             holder.itemView.getContext().getPackageName()
     );
@@ -73,7 +79,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
       this.cards = cardList;
 
       itemView.setOnClickListener(v -> {
-        int position = getAdapterPosition();
+        int position = getBindingAdapterPosition();
         if (position != RecyclerView.NO_POSITION && listener != null) {
           listener.onItemClick(cards.get(position));
         }
